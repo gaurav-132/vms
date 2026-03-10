@@ -26,26 +26,3 @@ docs/
 supabase/
   migrations/
 ```
-
-## Run all apps at once
-
-From the repository root:
-
-1. Install dependencies
-
-```bash
-npm install
-```
-
-2. Start all app dev servers (web + api) in one command
-
-```bash
-npm run dev
-```
-
-This uses Turborepo to run every workspace `dev` script in parallel.
-
-### Default local URLs
-
-- Web: `http://localhost:5173`
-- API: `http://localhost:4000`

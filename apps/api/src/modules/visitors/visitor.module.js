@@ -1,11 +1,11 @@
-import { VisitorController } from './controllers/visitor.controller.js';
-import { VisitorMemoryRepository } from './repositories/memory/visitor.repository.memory.js';
-import { VisitorService } from './services/visitor.service.js';
+import { VisitorService } from './application/visitor.service.js';
+import { InMemoryVisitorRepository } from './infrastructure/visitor.repository.memory.js';
+import { createVisitorController } from './interfaces/visitor.controller.js';
 
 export function createVisitorModule() {
-  const visitorRepository = new VisitorMemoryRepository();
-  const visitorService = new VisitorService(visitorRepository);
-  const visitorController = new VisitorController(visitorService);
+  const repository = new InMemoryVisitorRepository();
+  const service = new VisitorService(repository);
+  const controller = createVisitorController(service);
 
-  return { visitorController };
+  return { controller };
 }
