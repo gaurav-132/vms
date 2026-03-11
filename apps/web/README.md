@@ -1,20 +1,27 @@
 # apps/web
 
-React frontend for VMS.
+Frontend foundation for VMS using React, Vite, React Router, and TailwindCSS.
 
-## Standardized frontend architecture
+## Structure
 
 ```txt
 src/
-  app/                 Router and app bootstrap concerns
-  features/            Domain modules (auth, dashboard, gates, users, visitors)
-  shared/components/   Reusable UI shells/components
-  shared/lib/          Client utilities (API helpers, formatters)
+  components/   Reusable presentational UI primitives
+  layout/       App chrome and structural wrappers
+  features/     Feature modules (auth, dashboard, users, visitors, invitations, settings)
+  hooks/        Shared custom hooks
+  services/     Session and API service layer
+  utils/        Constants and helper utilities
+  routes/       Router + guards
+  styles/       Global Tailwind entry styles
 ```
 
-## Route model
+## Routes
 
-- Public routes: `/`
-- Protected app routes: `/app/dashboard`, `/app/gates`, `/app/users`, `/app/visitors`
+- Public: `/login`, `/register`
+- Protected: `/dashboard`, `/dashboard/users`, `/dashboard/visitors`, `/dashboard/invitations`, `/dashboard/settings`
 
-API integration targets the separate Node backend in `apps/api`.
+## Linting & indentation
+
+- Check lint/style: `npm run lint --workspace=@vms/web`
+- Auto-fix lint/style (including 4-space indentation): `npm run lint:fix --workspace=@vms/web`
