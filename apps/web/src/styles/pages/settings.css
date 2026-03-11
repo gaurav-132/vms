@@ -1,0 +1,58 @@
+/* ═══ SETTINGS PAGE ══════════════════════════════════════ */
+.settings-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.settings-section {
+    background: var(--clr-glass-bg);
+    border: 1px solid var(--clr-glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.settings-section__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.settings-section__desc {
+    font-size: 0.8rem;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--space-6);
+}
+
+.settings-section__divider {
+    height: 1px;
+    background: var(--clr-border);
+    margin: var(--space-6) 0;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.settings-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+}
+
+.settings-danger {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.settings-danger .settings-section__title {
+    color: var(--clr-danger);
+}
+
+@media (max-width: 640px) {
+    .settings-form__row {
+        grid-template-columns: 1fr;
+    }
+}

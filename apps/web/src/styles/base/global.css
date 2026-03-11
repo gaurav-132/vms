@@ -1,0 +1,39 @@
+body {
+    font-family:
+        'Inter',
+        system-ui,
+        -apple-system,
+        sans-serif;
+    background-color: var(--clr-bg-primary);
+    background-image:
+        radial-gradient(
+            ellipse at 10% 0%,
+            rgba(59, 130, 246, 0.18) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 90% 100%,
+            rgba(139, 92, 246, 0.18) 0%,
+            transparent 50%
+        );
+    background-attachment: fixed;
+    color: var(--clr-text-primary);
+    min-height: 100vh;
+}
+
+::selection {
+    background: var(--clr-accent-soft);
+    color: var(--clr-text-primary);
+}
+
+:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

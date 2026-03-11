@@ -1,0 +1,209 @@
+/* ═══ HOME PAGE ══════════════════════════════════════════ */
+
+/* Hero */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-12) 0 var(--space-16);
+    position: relative;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--clr-accent-soft);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: var(--radius-full);
+    padding: var(--space-1) var(--space-4);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+    margin-bottom: var(--space-6);
+}
+
+.hero__title {
+    max-width: 800px;
+    margin-bottom: var(--space-5);
+}
+
+.hero__subtitle {
+    max-width: 580px;
+    font-size: 1.15rem;
+    color: var(--clr-text-secondary);
+    margin-bottom: var(--space-8);
+}
+
+.hero__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+}
+
+/* Stats chips */
+.hero__stats {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stat-chip {
+    background: var(--clr-glass-bg);
+    border: 1px solid var(--clr-glass-border);
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-5);
+    font-size: 0.85rem;
+    color: var(--clr-text-secondary);
+    backdrop-filter: blur(8px);
+}
+
+.stat-chip strong {
+    color: var(--clr-text-primary);
+    font-weight: 700;
+}
+
+/* Features */
+.features {
+    padding: var(--space-16) 0;
+    text-align: center;
+}
+
+.features__header {
+    margin-bottom: var(--space-10);
+}
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-5);
+    text-align: left;
+}
+
+.feature-card {
+    background: var(--clr-glass-bg);
+    border: 1px solid var(--clr-glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.feature-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--clr-accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    font-size: 1.3rem;
+}
+
+.feature-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.feature-card__desc {
+    font-size: 0.875rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+}
+
+/* Steps */
+.steps {
+    padding: var(--space-16) 0;
+    text-align: center;
+}
+
+.steps__header {
+    margin-bottom: var(--space-10);
+}
+
+.steps__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    position: relative;
+}
+
+.step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+}
+
+.step-card__number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-violet));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+}
+
+.step-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text-primary);
+}
+
+.step-card__desc {
+    font-size: 0.875rem;
+    color: var(--clr-text-muted);
+}
+
+/* CTA Band */
+.cta-band {
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.12),
+        rgba(139, 92, 246, 0.12)
+    );
+    border: 1px solid var(--clr-glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-16);
+    text-align: center;
+    margin: var(--space-8) 0;
+}
+
+.cta-band h2 {
+    margin-bottom: var(--space-4);
+}
+
+.cta-band p {
+    margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+    .steps__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__title {
+        font-size: 2.2rem;
+    }
+}

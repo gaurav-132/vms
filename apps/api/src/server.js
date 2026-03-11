@@ -4,5 +4,5 @@ import { env } from './config/env.js';
 const app = createApp();
 
 app.listen(env.port, () => {
-  console.log(`vms-api listening on port ${env.port}`);
+    console.log(`vms-api listening on port ${env.port}`);
 });

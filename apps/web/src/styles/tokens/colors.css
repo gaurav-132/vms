@@ -1,0 +1,40 @@
+:root {
+    /* Backgrounds */
+    --clr-bg-primary: #0a0f1e;
+    --clr-bg-secondary: #111827;
+    --clr-bg-tertiary: #1f2937;
+    --clr-bg-card: rgba(255, 255, 255, 0.04);
+
+    /* Accent */
+    --clr-accent: #3b82f6;
+    --clr-accent-hover: #2563eb;
+    --clr-accent-soft: rgba(59, 130, 246, 0.15);
+    --clr-accent-glow: rgba(59, 130, 246, 0.35);
+    --clr-violet: #8b5cf6;
+    --clr-violet-soft: rgba(139, 92, 246, 0.15);
+
+    /* Text */
+    --clr-text-primary: #f1f5f9;
+    --clr-text-secondary: #94a3b8;
+    --clr-text-muted: #64748b;
+    --clr-text-inverted: #0a0f1e;
+
+    /* Glass */
+    --clr-glass-bg: rgba(255, 255, 255, 0.05);
+    --clr-glass-border: rgba(255, 255, 255, 0.08);
+    --clr-glass-hover: rgba(255, 255, 255, 0.09);
+
+    /* Status */
+    --clr-success: #10b981;
+    --clr-success-soft: rgba(16, 185, 129, 0.15);
+    --clr-warning: #f59e0b;
+    --clr-warning-soft: rgba(245, 158, 11, 0.15);
+    --clr-danger: #ef4444;
+    --clr-danger-soft: rgba(239, 68, 68, 0.15);
+    --clr-info: #06b6d4;
+    --clr-info-soft: rgba(6, 182, 212, 0.15);
+
+    /* Border */
+    --clr-border: rgba(255, 255, 255, 0.08);
+    --clr-border-focus: rgba(59, 130, 246, 0.6);
+}
