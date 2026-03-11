@@ -1,25 +1,49 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { NAVIGATION_ITEMS } from '../utils/constants';
+import { Avatar } from '../components/Avatar';
+import { NAVIGATION_ITEMS } from '../constants/navigation';
+import { authService } from '../services/authService';
 
 export function Sidebar() {
-  return (
-    <aside className="flex h-full flex-col border-r border-slate-200 bg-white px-4 py-6">
-      <h1 className="mb-8 text-xl font-bold text-indigo-700">VMS Cloud</h1>
-      <nav className="grid gap-2">
-        {NAVIGATION_ITEMS.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            className={({ isActive }) =>
-              `rounded-lg px-3 py-2 text-sm font-medium ${
-                isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-100'
-              }`
-            }
-          >
-            {item.label}
-          </NavLink>
-        ))}
-      </nav>
-    </aside>
-  );
+    const session = authService.getSession();
+    const userName = session?.email?.split('@')[0] || 'User';
+    const userRole = session?.role || 'Admin';
+
+    return (
+        <aside className="sidebar">
+            <div className="sidebar__logo">
+                <div className="sidebar__logo-text">
+                    VMS<span>.</span>
+                </div>
+                <div className="sidebar__logo-sub">Visitor Management</div>
+            </div>
+
+            <nav className="sidebar__nav">
+                <span className="sidebar__nav-label">Main Menu</span>
+                {NAVIGATION_ITEMS.map((item) => (
+                    <NavLink
+                        key={item.to}
+                        to={item.to}
+                        end={item.to === '/dashboard'}
+                        className={({ isActive }) =>
+                            `sidebar__nav-item${isActive ? ' active' : ''}`
+                        }
+                    >
+                        <span className="sidebar__nav-icon" aria-hidden="true">
+                            {item.icon}
+                        </span>
+                        {item.label}
+                    </NavLink>
+                ))}
+            </nav>
+
+            <div className="sidebar__user">
+                <Avatar name={userName} size={36} />
+                <div className="sidebar__user-info">
+                    <div className="sidebar__user-name">{userName}</div>
+                    <div className="sidebar__user-role">{userRole}</div>
+                </div>
+            </div>
+        </aside>
+    );
 }

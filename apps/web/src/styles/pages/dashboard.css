@@ -1,0 +1,112 @@
+/* ═══ DASHBOARD PAGE ═════════════════════════════════════ */
+.dash-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.dash-page__title {
+    margin-bottom: 0;
+}
+.dash-page__subtitle {
+    color: var(--clr-text-muted);
+    font-size: 0.875rem;
+    margin-top: var(--space-1);
+}
+
+/* KPI row */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+}
+
+.kpi-card {
+    background: var(--clr-glass-bg);
+    border: 1px solid var(--clr-glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.kpi-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kpi-card__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clr-text-muted);
+}
+
+.kpi-card__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.kpi-card__value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--clr-text-primary);
+    line-height: 1;
+}
+
+.kpi-card__trend {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.kpi-card__trend--up {
+    color: var(--clr-success);
+}
+.kpi-card__trend--down {
+    color: var(--clr-danger);
+}
+
+/* Content row */
+.dash-content-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-5);
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.dash-section__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text-primary);
+}
+
+@media (max-width: 900px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
