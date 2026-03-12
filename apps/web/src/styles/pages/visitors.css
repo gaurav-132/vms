@@ -1,0 +1,19 @@
+/* Shared admin page shell styles */
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.admin-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-page__title-group small {
+    font-size: 0.8rem;
+    color: var(--clr-text-muted);
+    display: block;
+    margin-top: var(--space-1);
+}

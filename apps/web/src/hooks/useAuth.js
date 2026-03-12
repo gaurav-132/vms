@@ -1,11 +1,10 @@
-import { useMemo } from 'react';
 import { authService } from '../services/authService';
 
 export function useAuth() {
-  const session = useMemo(() => authService.getSession(), []);
-
-  return {
-    session,
-    isAuthenticated: Boolean(session)
-  };
+    return {
+        isAuthenticated: authService.isAuthenticated(),
+        session: authService.getSession(),
+        login: authService.login.bind(authService),
+        logout: authService.logout.bind(authService),
+    };
 }

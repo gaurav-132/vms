@@ -1,0 +1,47 @@
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.badge--active {
+    background: var(--clr-success-soft);
+    color: var(--clr-success);
+}
+.badge--pending {
+    background: var(--clr-warning-soft);
+    color: var(--clr-warning);
+}
+.badge--rejected {
+    background: var(--clr-danger-soft);
+    color: var(--clr-danger);
+}
+.badge--expired {
+    background: var(--clr-glass-bg);
+    color: var(--clr-text-muted);
+}
+.badge--info {
+    background: var(--clr-info-soft);
+    color: var(--clr-info);
+}
+.badge--admin {
+    background: var(--clr-accent-soft);
+    color: var(--clr-accent);
+}
+.badge--security {
+    background: var(--clr-violet-soft);
+    color: var(--clr-violet);
+}
