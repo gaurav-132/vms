@@ -13,7 +13,8 @@
 }
 
 .field__input,
-.field__select {
+.field__select,
+.field__textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     background: rgba(255, 255, 255, 0.05);
@@ -34,7 +35,8 @@
 }
 
 .field__input:focus,
-.field__select:focus {
+.field__select:focus,
+.field__textarea:focus {
     outline: none;
     border-color: var(--clr-border-focus);
     box-shadow: 0 0 0 3px var(--clr-accent-soft);
