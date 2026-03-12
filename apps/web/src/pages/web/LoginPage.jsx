@@ -1,23 +1,30 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { authService } from '../../services/authService';
+// import { useAuth } from '../../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 export function LoginPage() {
     const navigate = useNavigate();
     const location = useLocation();
+    const { login } = useAuth();
     const [form, setForm] = useState({ email: '', password: '' });
+    const [error, setError] = useState('');
 
     const set = (field) => (e) =>
         setForm((p) => ({ ...p, [field]: e.target.value }));
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        authService.login({ email: form.email, role: 'Admin' });
-        const redirectTo = location.state?.from?.pathname || '/dashboard';
-        navigate(redirectTo, { replace: true });
+        setError('');
+        try {
+            await login(form.email, form.password);
+            const redirectTo = location.state?.from?.pathname || '/admin';
+            navigate(redirectTo, { replace: true });
+        } catch (err) {
+            setError(err.message || 'Login failed');
+        }
     };
 
     return (
@@ -57,6 +64,7 @@ export function LoginPage() {
                     </div>
 
                     <form className="auth-card__form" onSubmit={handleSubmit}>
+                        {error && <div style={{ color: 'var(--clr-danger)', marginBottom: '1rem' }}>{error}</div>}
                         <Input
                             label="Work Email"
                             type="email"

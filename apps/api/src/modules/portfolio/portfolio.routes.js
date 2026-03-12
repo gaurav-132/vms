@@ -1,10 +1,13 @@
 import express from 'express';
 import { portfolioController } from './portfolio.controller.js';
+import { authenticateToken } from '../../middleware/auth.middleware.js';
 
 const router = express.Router();
 
 router.get('/', portfolioController.list);
-router.post('/', portfolioController.create);
-router.delete('/:id', portfolioController.delete);
+router.get('/:id', portfolioController.getById);
+router.post('/', authenticateToken, portfolioController.create);
+router.put('/:id', authenticateToken, portfolioController.update);
+router.delete('/:id', authenticateToken, portfolioController.delete);
 
 export const portfolioRoutes = router;
