@@ -26,19 +26,17 @@ import './styles/components/modal.css';
 
 /* ── Layout styles ── */
 import './styles/layout/public-layout.css';
-import './styles/layout/dashboard-layout.css';
-import './styles/layout/sidebar.css';
-import './styles/layout/header.css';
+import './styles/layout/admin-layout.css';
 
 /* ── Page styles ── */
 import './styles/pages/home.css';
 import './styles/pages/pricing.css';
 import './styles/pages/about.css';
+import './styles/pages/products.css';
+import './styles/pages/book-demo.css';
 import './styles/pages/login.css';
-import './styles/pages/register.css';
 import './styles/pages/dashboard.css';
-import './styles/pages/visitors.css';
-import './styles/pages/invitations.css';
+import './styles/pages/portfolio.css';
 import './styles/pages/users.css';
 import './styles/pages/settings.css';
 

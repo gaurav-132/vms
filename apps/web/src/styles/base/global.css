@@ -37,3 +37,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* ── Helpers ── */
+.no-scroll {
+    overflow: hidden;
+}

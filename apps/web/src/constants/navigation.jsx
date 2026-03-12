@@ -5,12 +5,10 @@ import React from 'react';
 // Each item has a to (route), a label, and a minimal SVG icon element
 export const NAVIGATION_ITEMS = [
     {
-        to: '/dashboard',
+        to: '/admin',
         label: 'Dashboard',
         icon: (
             <svg
-                width="18"
-                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -18,20 +16,18 @@ export const NAVIGATION_ITEMS = [
                 strokeLinecap="round"
                 strokeLinejoin="round"
             >
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
+                <rect width="7" height="9" x="3" y="3" rx="1" />
+                <rect width="7" height="5" x="14" y="3" rx="1" />
+                <rect width="7" height="9" x="14" y="12" rx="1" />
+                <rect width="7" height="5" x="3" y="16" rx="1" />
             </svg>
         ),
     },
     {
-        to: '/dashboard/visitors',
-        label: 'Visitors',
+        to: '/admin/portfolio',
+        label: 'Product & Services',
         icon: (
             <svg
-                width="18"
-                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -39,20 +35,17 @@ export const NAVIGATION_ITEMS = [
                 strokeLinecap="round"
                 strokeLinejoin="round"
             >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                <path d="M12 12v9" />
+                <path d="m8 17 4 4 4-4" />
             </svg>
         ),
     },
     {
-        to: '/dashboard/invitations',
-        label: 'Invitations',
+        to: '/admin/demo-requests',
+        label: 'Demo Requests',
         icon: (
             <svg
-                width="18"
-                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -60,13 +53,13 @@ export const NAVIGATION_ITEMS = [
                 strokeLinecap="round"
                 strokeLinejoin="round"
             >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
+                <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
             </svg>
         ),
     },
     {
-        to: '/dashboard/users',
+        to: '/admin/users',
         label: 'Users',
         icon: (
             <svg
@@ -85,7 +78,7 @@ export const NAVIGATION_ITEMS = [
         ),
     },
     {
-        to: '/dashboard/settings',
+        to: '/admin/settings',
         label: 'Settings',
         icon: (
             <svg
