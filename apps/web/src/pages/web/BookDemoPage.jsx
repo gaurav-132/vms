@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
+import { usePortfolio } from '../../hooks/usePortfolio';
+import { useDemoRequests } from '../../hooks/useDemoRequests';
 
 export function BookDemoPage() {
     const [searchParams] = useSearchParams();
     const serviceParam = searchParams.get('service') || '';
 
-    const [portfolioItems, setPortfolioItems] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(null);
+    const { portfolioItems } = usePortfolio();
+    const { submitDemoRequest, loading, success, error, resetStatus } = useDemoRequests();
 
     const [formData, setFormData] = useState({
         name: '',
@@ -21,43 +20,15 @@ export function BookDemoPage() {
         message: '',
     });
 
-    useEffect(() => {
-        fetch('/api/portfolio')
-            .then((res) => res.json())
-            .then((data) => {
-                if (Array.isArray(data)) {
-                    setPortfolioItems(data);
-                } else {
-                    console.error('API Error:', data);
-                    setPortfolioItems([]);
-                }
-            })
-            .catch((err) => {
-                console.error('Failed to load portfolio items', err);
-                setPortfolioItems([]);
-            });
-    }, []);
-
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
-        try {
-            const res = await fetch('/api/demo-requests', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-
-            if (!res.ok) throw new Error('Failed to submit request');
-
-            setSuccess(true);
+        const ok = await submitDemoRequest(formData);
+        if (ok) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             setFormData({
                 name: '',
                 email: '',
@@ -67,24 +38,20 @@ export function BookDemoPage() {
                 preferred_demo_date: '',
                 message: '',
             });
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
         }
     };
 
     if (success) {
         return (
-            <div className="book-demo-page container anim-fade-in-up text-center">
+            <div className="book-demo-page book-demo-page--centered anim-fade-in-up text-center">
                 <div className="glass-panel success-panel" style={{ padding: '5rem 2rem' }}>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Demo Requested! 🎉</h2>
                     <p style={{ fontSize: '1.1rem', color: 'var(--clr-text-secondary)', maxWidth: '500px', margin: '0 auto' }}>
                         Thank you for your interest. Our team will reach out to you shortly to schedule your personalized product walkthrough.
                     </p>
                     <button
-                        className="btn btn--primary btn--lg mt-8"
-                        onClick={() => setSuccess(false)}
+                        className="btn btn--primary btn--lg"
+                        onClick={resetStatus}
                         style={{ marginTop: '2.5rem' }}
                     >
                         Schedule Another Demo

@@ -107,7 +107,16 @@
     transform: translateY(-3px);
 }
 
+.book-demo-page--centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2rem;
+}
+
 .success-panel {
     max-width: 600px;
-    margin: 4rem auto;
+    width: 100%;
+    margin: 0 auto;
 }

@@ -32,7 +32,7 @@ export function AdminSidebar({ isOpen, onClose }) {
                     <NavLink
                         key={item.to}
                         to={item.to}
-                        end={item.to === '/dashboard'}
+                        end={item.to === '/admin'}
                         onClick={onClose}
                         className={({ isActive }) =>
                             `sidebar__nav-item${isActive ? ' active' : ''}`

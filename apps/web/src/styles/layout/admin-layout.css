@@ -238,8 +238,8 @@
 .admin-layout__content {
     flex-grow: 1;
     overflow-y: auto;
-    background-color: #0a0a0a;
-    padding: var(--space-6);
+    background-color: #0d0d0d;
+    padding: var(--space-8);
     scroll-behavior: smooth;
 }
 
@@ -272,10 +272,10 @@
     .sidebar-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(4px);
         z-index: 45;
-        animation: fadeIn 0.2s ease;
+        animation: fadeIn 0.3s ease;
     }
 
     .admin-header__mobile-toggle {

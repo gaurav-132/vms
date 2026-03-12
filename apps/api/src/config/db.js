@@ -1,12 +1,5 @@
-import pg from 'pg';
-import { env } from './env.js';
+import knex from 'knex';
+import config from '../../knexfile.js';
 
-const { Pool } = pg;
-
-export const pool = new Pool({
-    connectionString: env.databaseUrl,
-});
-
-export const db = {
-    query: (text, params) => pool.query(text, params),
-};
+const environment = process.env.NODE_ENV || 'development';
+export const db = knex(config[environment]);
